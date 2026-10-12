@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src/**/__tests__/**/*", "src/shared/types/**/*.d.ts", "uniwind-types.d.ts"],
+  "exclude": ["node_modules"]
+}

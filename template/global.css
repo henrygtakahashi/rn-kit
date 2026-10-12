@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@import "tw-animate-css";
+
+/*
+  Default theme: tonal surfaces from a single hue.
+
+  Every surface and text color is the same hue at a different lightness,
+  with very low chroma. In oklch(L C H), H is the hue. The default hue is
+  250 with almost no chroma, which reads as neutral gray.
+
+  To give a project its identity, replace the hue (250) in every neutral
+  token with the hue from PROJECT_BRIEF.md and raise the chroma a little
+  (0.01 to 0.03 on surfaces). Keep the lightness values: they carry the
+  contrast between levels and between text and surface.
+
+  Surface levels, from back to front:
+    background -> card -> secondary (controls: chips, icon buttons, inputs)
+*/
+
+@theme {
+  /* Radius: large and soft. Use rounded-full for pills (chips, switches, tab bar). */
+  --radius: 20px;
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --spacing-hairline: hairlineWidth();
+
+  /* Text scale: five styles, used only through the Text component variants. */
+  --text-caption: 14px;
+  --text-caption--line-height: 20px;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-subtitle: 20px;
+  --text-subtitle--line-height: 28px;
+  --text-title: 28px;
+  --text-title--line-height: 34px;
+  --text-display: 96px;
+  --text-display--line-height: 100px;
+}
+
+@layer theme {
+  :root {
+    @variant light {
+      /* Surfaces */
+      --color-background: oklch(0.965 0.004 250);
+      --color-foreground: oklch(0.18 0.006 250);
+      --color-card: oklch(0.995 0.002 250);
+      --color-card-foreground: oklch(0.18 0.006 250);
+      --color-popover: oklch(0.995 0.002 250);
+      --color-popover-foreground: oklch(0.18 0.006 250);
+
+      /* Controls: one level above the card */
+      --color-secondary: oklch(0.925 0.006 250);
+      --color-secondary-foreground: oklch(0.22 0.006 250);
+      --color-accent: oklch(0.925 0.006 250);
+      --color-accent-foreground: oklch(0.22 0.006 250);
+
+      /* Primary: the inverted surface. Main action and the floating tab bar. */
+      --color-primary: oklch(0.22 0.006 250);
+      --color-primary-foreground: oklch(0.975 0.004 250);
+
+      /* Quiet content */
+      --color-muted: oklch(0.945 0.004 250);
+      --color-muted-foreground: oklch(0.48 0.008 250);
+
+      /* Status: fixed hues, not derived from the theme hue */
+      /* Measured: 4.66:1 on background, 5.08:1 on card, 4.93:1 under white text. */
+      --color-destructive: oklch(0.55 0.245 27.325);
+      --color-destructive-foreground: oklch(0.985 0 0);
+      --color-success: oklch(0.527 0.154 150.069);
+      --color-success-foreground: oklch(0.985 0 0);
+      --color-warning: oklch(0.555 0.163 48.998);
+      --color-warning-foreground: oklch(0.985 0 0);
+
+      /* Lines and focus */
+      --color-border: oklch(0.89 0.006 250);
+      --color-input: oklch(0.89 0.006 250);
+      --color-ring: oklch(0.7 0.008 250);
+    }
+
+    @variant dark {
+      --color-background: oklch(0.16 0.004 250);
+      --color-foreground: oklch(0.96 0.004 250);
+      --color-card: oklch(0.225 0.006 250);
+      --color-card-foreground: oklch(0.96 0.004 250);
+      --color-popover: oklch(0.225 0.006 250);
+      --color-popover-foreground: oklch(0.96 0.004 250);
+
+      --color-secondary: oklch(0.29 0.008 250);
+      --color-secondary-foreground: oklch(0.96 0.004 250);
+      --color-accent: oklch(0.29 0.008 250);
+      --color-accent-foreground: oklch(0.96 0.004 250);
+
+      --color-primary: oklch(0.88 0.006 250);
+      --color-primary-foreground: oklch(0.2 0.006 250);
+
+      --color-muted: oklch(0.26 0.006 250);
+      --color-muted-foreground: oklch(0.72 0.008 250);
+
+      --color-destructive: oklch(0.704 0.191 22.216);
+      --color-destructive-foreground: oklch(0.145 0 0);
+      --color-success: oklch(0.792 0.209 151.711);
+      --color-success-foreground: oklch(0.145 0 0);
+      --color-warning: oklch(0.828 0.189 84.429);
+      --color-warning-foreground: oklch(0.145 0 0);
+
+      --color-border: oklch(1 0 0 / 10%);
+      --color-input: oklch(1 0 0 / 15%);
+      --color-ring: oklch(0.55 0.008 250);
+    }
+  }
+}
